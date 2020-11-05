@@ -42,7 +42,6 @@ def hr_example(df_ref, tkr, calc_date, window=500):
                        n_jobs=-1,
                        cv=KFold(n_splits=10, shuffle=True, random_state=0),
                        scoring='neg_median_absolute_error',
-                       iid=False,
                        return_train_score=True,
                        refit=True,
                        error_score=np.nan)

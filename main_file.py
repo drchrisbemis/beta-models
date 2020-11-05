@@ -135,12 +135,12 @@ jfig.time_series_plots(df_bta, tkr)
 # Or a look into a single day's fit
 # # uses the same dataframe as backfill (i.e., it would call same database)
 # # or, you could store output from backfill ... either way
-calc_date = '2019-01-01'
+calc_date = pd.to_datetime('2020-11-01')
 jfig.fit_diagnostic_plots(df_ref, tkr, calc_date, window=180)
 
 ''' Finally, consider an alternative to OLS '''
 import jump_ml as jml
-(hr_mdl, X, s) = jml.hr_example(df_ref, 'AAPL', '2020-11-01', window=500)
+(hr_mdl, X, s) = jml.hr_example(df_ref, 'AAPL', calc_date, window=500)
 fit_reg = hr_mdl.best_estimator_.named_steps['hr']
 
 print('Coefficients from a huber regressor fit using k-fold cross validation...')
